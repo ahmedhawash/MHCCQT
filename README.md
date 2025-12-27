@@ -2,10 +2,6 @@
 
 A lightweight, file-based **Quality Monitoring and Evaluation** application built with **Streamlit**.  
 It allows reviewers to evaluate agents using configurable question sets, store results safely, and analyze performance over time.
-# Quality Tracker — Streamlit App
-
-A lightweight, file-based Quality Monitoring & Evaluation app built with Streamlit.
-Reviewers evaluate agents using versioned question sets stored as CSVs; results are saved to CSV for easy inspection and reporting.
 
 ## Key Features
 - Dynamic evaluation forms driven by CSV question sets
