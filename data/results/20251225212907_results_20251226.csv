@@ -1,0 +1,6 @@
+result_id,coach_id,coach_name,agent_id,agent_name,monitoring_date,transaction_date,total_score,normalized_score,reviewer_comments,Q1_answer,Q1_score,Q2_answer,Q2_score,Q3_answer,Q3_score
+20251226162449,1,Adam,4,Elena Rossi,2025-12-25,2025-12-25,70,70.0,Yalla,Yes,20,No,0,Yes,50
+20251226162505,1,Adam,4,Elena Rossi,2025-12-25,2025-12-25,70,70.0,Yalla,Yes,20,No,0,Yes,50
+20251226162812,2,Eve,5,Silas Thorne,2025-12-26,2025-12-26,70,70.0,,Yes,20,No,0,Yes,50
+20251226162817,2,Eve,5,Silas Thorne,2025-12-26,2025-12-26,70,70.0,,Yes,20,No,0,Yes,50
+20251226164213,2,Eve,3,Arthur Sterling,2025-12-24,2025-12-09,100,100.0,s,Yes,20,Yes,30,Yes,50

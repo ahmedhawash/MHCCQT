@@ -1,0 +1,11 @@
+Number,Question,Weight
+1,Did the agent use the standard company greeting and introduce themselves?,5
+2,Did the agent verify the customer’s identity according to security protocols?,10
+3,Did the agent provide accurate and up-to-date information?,10
+4,Did the agent use the customer's name at least once during the call?,5
+5,Did the agent avoid interrupting the customer while they were speaking?,10
+6,Did the agent maintain a professional and empathetic tone throughout?,20
+7,Did the agent summarize the actions taken or the next steps?,10
+8,Did the agent ask if there was anything else they could assist with?,10
+9,Was the customer’s primary issue resolved or escalated correctly?,10
+10,"Did the agent follow proper ""hold"" procedures (asking permission and thanking them for waiting)?",10

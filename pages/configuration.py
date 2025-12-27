@@ -24,14 +24,15 @@ def save_dataframe(df, folder_path, filename):
 
 st.title("Configuration")
 
-questions_tab, tab2, tab3 = st.tabs(["Questions", "Agents", "QA Coach"])
+questions_tab, tab2, tab3 = st.tabs(["Questions", "Agents", "QA Coaches"])
 
 # Questions tab
 
 # Questions Path
 SAVE_QUESTIONS_PATH = "data/questions"
 
-current_questions_csv_path = os.path.join(SAVE_QUESTIONS_PATH, os.listdir(SAVE_QUESTIONS_PATH)[0])
+current_questions_csv_path = os.path.join(
+    SAVE_QUESTIONS_PATH, os.listdir(SAVE_QUESTIONS_PATH)[0])
 current_questions_df = pd.read_csv(current_questions_csv_path)
 
 
@@ -98,6 +99,7 @@ with questions_tab:
 
         except Exception as e:
             st.error("Failed to read CSV file")
+            st.text(e)
 
     st.markdown("## Current Questions")
     st.table(current_questions_df)
@@ -107,8 +109,12 @@ with questions_tab:
 with tab2:
 
     SAVE_AGENTS_PATH = "data/agents"
-    current_agents_csv_path = os.path.join(SAVE_AGENTS_PATH, os.listdir(SAVE_AGENTS_PATH)[0])
+    current_agents_csv_path = os.path.join(
+        SAVE_AGENTS_PATH, os.listdir(SAVE_AGENTS_PATH)[0])
     current_agents_df = pd.read_csv(current_agents_csv_path)
+
+    st.markdown("# Agents")
+    st.markdown("## Upload Agents List")
 
     agents = st.file_uploader("Choose a file", type="csv", key="agents")
     if agents is not None:
@@ -131,24 +137,66 @@ with tab2:
             if agents_df["ID"].isnull().any():
                 st.error("ID column must contain only numbers")
                 st.stop()
-            
+
             # If all checks pass
             st.success("CSV file is valid ✅")
             st.table(agents_df)
 
             delete_existing_files(SAVE_AGENTS_PATH)
             save_dataframe(agents_df, SAVE_AGENTS_PATH,
-                           f"agents_{current_time}.csv")
+                           f"agents.csv")
             st.success("File saved successfully")
-
-            
 
         except Exception as e:
             st.error("Failed to read CSV file")
-    
-    st.markdown("## Current Agents")
+
+    st.markdown("## Current Agents List")
     st.table(current_agents_df)
 
+# Coaches tab
 with tab3:
-    st.header("An owl")
-    st.image("https://static.streamlit.io/examples/owl.jpg", width=200)
+
+    SAVE_COACHES_PATH = "data/coaches"
+    current_coaches_csv_path = os.path.join(
+        SAVE_COACHES_PATH, os.listdir(SAVE_COACHES_PATH)[0])
+    current_coaches_df = pd.read_csv(current_coaches_csv_path)
+
+    st.markdown("# QA Coaches")
+    st.markdown("## Upload Coaches List")
+
+    coaches = st.file_uploader("Choose a file", type="csv", key="coaches")
+    if coaches is not None:
+        try:
+            coaches_df = pd.read_csv(coaches)
+
+            # 1. Remove completely empty rows
+            coaches_df = coaches_df.dropna(how="all")
+
+            # 2. Validate columns
+            expected_columns = ["ID", "Coach Name"]
+            if list(coaches_df.columns) != expected_columns:
+                st.error(
+                    "CSV must have exactly these columns: ID, Agent Name")
+                st.stop()
+            # 3. Convert ID to numeric
+            coaches_df["ID"] = pd.to_numeric(
+                coaches_df["ID"], errors="coerce")
+            # 4. Check for invalid numbers
+            if coaches_df["ID"].isnull().any():
+                st.error("ID column must contain only numbers")
+                st.stop()
+
+            # If all checks pass
+            st.success("CSV file is valid ✅")
+            st.table(coaches_df)
+
+            delete_existing_files(SAVE_COACHES_PATH)
+            save_dataframe(coaches_df, SAVE_COACHES_PATH,
+                           f"coaches.csv")
+            st.success("File saved successfully")
+
+        except Exception as e:
+            st.error("Failed to read CSV file")
+
+    st.markdown("## Current coaches List")
+    st.table(current_coaches_df)
