@@ -1,3 +1,0 @@
-result_id,coach_id,coach_name,agent_id,agent_name,monitoring_date,transaction_date,total_score,normalized_score,reviewer_comments,Q1_answer,Q1_score,Q2_answer,Q2_score,Q3_answer,Q3_score,Q4_answer,Q4_score,Q5_answer,Q5_score,Q6_answer,Q6_score,Q7_answer,Q7_score,Q8_answer,Q8_score,Q9_answer,Q9_score,Q10_answer,Q10_score
-20251226190410,2,Eve,19,Adrian Nash,2025-12-08,2025-12-08,45,45.0,,Yes,5,No,0,Yes,10,No,0,Yes,10,No,0,Yes,10,No,0,Yes,10,No,0
-20251226190545,2,Eve,3,Arthur Sterling,2025-12-15,2025-12-08,40,40.0,,No,0,Yes,10,No,0,No,0,Yes,10,No,0,No,0,No,0,Yes,10,Yes,10
